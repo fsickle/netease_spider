@@ -5,10 +5,14 @@
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy import Item, Field
 
 
-class NeteaseSpiderItem(scrapy.Item):
+class NeteaseSpiderItem(Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    collection = 'new_comment'
+    comment = Field()
+    total = Field()
+    url = Field()
+    name = Field()
