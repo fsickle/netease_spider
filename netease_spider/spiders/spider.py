@@ -33,9 +33,9 @@ class SpiderSpider(Spider):
 
     # 选取一些多样化的歌曲，作为最开始的爬取对象
     def start_requests(self):
-        urls = ['https://music.163.com/song?id=442016694', 'https://music.163.com/song?id=30482293',
-                'https://music.163.com/song?id=447926071', 'https://music.163.com/song?id=22722555',
-                'https://music.163.com/song?id=557513151', 'https://music.163.com/song?id=451703096']
+        urls = ['https://music.163.com/song?id=5308068', 'https://music.163.com/song?id=28754103',
+                'https://music.163.com/song?id=1300594121', 'https://music.163.com/song?id=1296583188',
+                'https://music.163.com/song?id=51297750680', 'https://music.163.com/song?id=573240010']
         headers = self.headers.copy()
         for url in urls:
             yield Request(url, headers=headers, callback=self.get_comment)
@@ -49,7 +49,8 @@ class SpiderSpider(Spider):
         headers = self.headers.copy()
         first_data = self.get_first_data(url)
         data = self.encrypted_request(first_data, self.second_data, self.third_data, self.fourth_data)
-        yield FormRequest(comment_url, headers=headers, formdata=data, callback=self.parse_comment, meta={'name': name})
+        yield FormRequest(comment_url, headers=headers, formdata=data, callback=self.parse_comment,
+                            meta={'name': name, 'song_url': url})
 
         list_url = response.css('div.g-bd4.f-cb div.g-sd4 div ul.m-rctlist.f-cb li div.info p.f-thide a::a'
                                 'ttr("href")').extract()
@@ -74,7 +75,7 @@ class SpiderSpider(Spider):
             item['comment'] = comment
             total = comments["total"]
             item["total"] = int(total)
-            item_url = response.url
+            item_url = response.meta['song_url']
             item['url'] = item_url
             item['name'] = response.meta['name']
             # print(result)
