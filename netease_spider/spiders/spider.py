@@ -83,7 +83,7 @@ class SpiderSpider(Spider):
         else:
             item['comment'] = 'no comment'
             total = comments["total"]
-            item["total"] = str(total)
+            item["total"] = int(total)
             item_url = response.url
             item['url'] = item_url
             item['name'] = response.meta['name']
