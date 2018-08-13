@@ -89,5 +89,12 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 DOWNLOAD_TIMEOUT = 2
-MONGO_URI = 'localhost'
+MONGO_URI = 'mogodb://admin:password:port'
 MONGO_DB = 'netease'
+
+#scrapy_redis 的配置
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+REDIS_URL = "redis://:password:uri"
+SCHEDULER_QUEUE_CLASS = 'scrapy_redis.queque.FifoQueue'
+SCHEDULER_FLUSH_ON_START = True
