@@ -3,6 +3,8 @@
 <p>如果还想扩展爬取队列，可已再对喜欢这个歌单的用户进行爬取，每个人收藏的歌单超多</p>
 <p>最后的存储结果为:</P>
 <img src="png/6.png">
+<p>对数据库中的近4000首音乐根据评论数进行排序：</p>
+<img src="png/7.png">
 <h2>加密参数解析</h2></br>
 <p>任选一首歌，分析得到，评论的加载源于URL：R_SO_4_id?csrf_token。其中Form Data的params和encSecKey为加密后的，如图</p></br>
 <img src="png/1.png"
