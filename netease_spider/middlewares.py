@@ -18,8 +18,8 @@ proxyServer = "http://http-dyn.abuyun.com:9020"
 
 # 代理隧道验证信息
 
-proxyUser = "H74274906A74PP2D"
-proxyPass = "EA516E778B9E0A75"
+proxyUser = ""
+proxyPass = ""
 
 # for Python2
 # proxyAuth = "Basic " + base64.b64encode(proxyUser + ":" + proxyPass)
