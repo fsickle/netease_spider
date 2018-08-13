@@ -33,9 +33,9 @@ class SpiderSpider(Spider):
 
     # 选取一些多样化的歌曲，作为最开始的爬取对象
     def start_requests(self):
-        urls = ['https://music.163.com/song?id=22677433', 'https://music.163.com/song?id=108242',
-                'https://music.163.com/song?id=26201959', 'https://music.163.com/song?id=658318',
-                'https://music.163.com/song?id=506196018', 'https://music.163.com/song?id=461544126']
+        urls = ['https://music.163.com/song?id=442016694', 'https://music.163.com/song?id=30482293',
+                'https://music.163.com/song?id=447926071', 'https://music.163.com/song?id=22722555',
+                'https://music.163.com/song?id=557513151', 'https://music.163.com/song?id=451703096']
         headers = self.headers.copy()
         for url in urls:
             yield Request(url, headers=headers, callback=self.get_comment)
